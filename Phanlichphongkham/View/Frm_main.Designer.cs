@@ -72,7 +72,7 @@
             xtraTabControl1.Dock = DockStyle.Fill;
             xtraTabControl1.Location = new Point(0, 0);
             xtraTabControl1.Name = "xtraTabControl1";
-            xtraTabControl1.SelectedTabPage = xtraTabPage2;
+            xtraTabControl1.SelectedTabPage = xtraTabPage1;
             xtraTabControl1.Size = new Size(1291, 893);
             xtraTabControl1.TabIndex = 0;
             xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] { xtraTabPage1, xtraTabPage2 });
@@ -124,6 +124,7 @@
             simpleButton1.Size = new Size(118, 36);
             simpleButton1.TabIndex = 4;
             simpleButton1.Text = "Xem";
+            simpleButton1.Click += simpleButton1_Click_1;
             // 
             // textEdit2
             // 
@@ -134,6 +135,7 @@
             textEdit2.Size = new Size(156, 34);
             textEdit2.TabIndex = 3;
             textEdit2.EditValueChanged += textEdit2_EditValueChanged;
+            textEdit2.KeyPress += textEdit2_KeyPress;
             // 
             // labelControl2
             // 
@@ -153,6 +155,7 @@
             textEdit1.Properties.Appearance.Options.UseFont = true;
             textEdit1.Size = new Size(156, 34);
             textEdit1.TabIndex = 1;
+            textEdit1.KeyPress += textEdit1_KeyPress;
             // 
             // labelControl1
             // 
@@ -172,12 +175,16 @@
             gridControl1.Name = "gridControl1";
             gridControl1.Size = new Size(1289, 773);
             gridControl1.TabIndex = 0;
+            gridControl1.UseEmbeddedNavigator = true;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
+            gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            gridView1.KeyDown += gridView1_KeyDown;
+            gridView1.GotFocus += gridView1_GotFocus;
             // 
             // xtraTabPage2
             // 

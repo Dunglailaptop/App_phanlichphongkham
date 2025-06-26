@@ -22,7 +22,7 @@ namespace Phanlichphongkham.View
             slotTimeController = new SlotTimeController();
             InitializeComponent();
             loadmain();
-            simpleButton1.Enabled = false;
+            
         }
 
         public void loadmain()
