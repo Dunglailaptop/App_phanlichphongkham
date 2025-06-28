@@ -22,7 +22,9 @@ using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid;
 using HospitalDataLibrarys.Models;
 using System.Globalization;
-using Calendar = System.Globalization.Calendar;
+using HospitalDataLibrarys.Models;
+using Doctor = HospitalDataLibrarys.Models.Doctor;
+using DepartmentHospital = HospitalDataLibrarys.Models.DepartmentHospital;
 
 namespace Phanlichphongkham.View
 {
@@ -89,7 +91,7 @@ namespace Phanlichphongkham.View
         private void GetYearWeekAndDays(int year, int weekNumber, out List<string> weekDays)
         {
             // Tính ngày bắt đầu của tuần dựa trên year và weekNumber
-            Calendar calendar = CultureInfo.InvariantCulture.Calendar;
+            System.Globalization.Calendar calendar = CultureInfo.InvariantCulture.Calendar;
             DateTime jan1 = new DateTime(year, 1, 1);
             int daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;
             DateTime firstThursday = jan1.AddDays(daysOffset);
@@ -191,9 +193,7 @@ namespace Phanlichphongkham.View
             // Thêm dữ liệu mẫu hoặc load từ DB
             modelList.Add(new DepartmentalAppointmentScheduling
             {
-                Room_Id = 1,
-                Specialty_Id = 1,
-                DateInWeek = DateTime.Now
+              
             });
 
             gridControl1.DataSource = modelList;
@@ -211,9 +211,7 @@ namespace Phanlichphongkham.View
             // Thêm dữ liệu mẫu hoặc load từ DB
             modelList.Add(new DepartmentalAppointmentScheduling
             {
-                Room_Id = 1,
-                Specialty_Id = 1,
-                DateInWeek = DateTime.Now
+             
             });
             gridControl1.DataSource = modelList;
         }

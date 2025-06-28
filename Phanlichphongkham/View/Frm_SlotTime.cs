@@ -49,10 +49,10 @@ namespace Phanlichphongkham.View
         {
             var list = new List<Examination>
             {
-                new Examination { Examination_Code = "Ca 1", Name = "Sáng",StartTime = new TimeSpan(7, 30, 0), EndTime = new TimeSpan(10, 30, 0), Total = 0 },
-                new Examination { Examination_Code = "Ca 2", Name = "Trưa",StartTime = new TimeSpan(11, 0, 0), EndTime = new TimeSpan(12, 50, 0), Total = 0 },
-                new Examination { Examination_Code = "Ca 3", Name = "Chiều",StartTime = new TimeSpan(13, 30, 0), EndTime = new TimeSpan(15, 30, 0), Total = 0 },
-                new Examination { Examination_Code = "Ca 4", Name = "Tối",StartTime = new TimeSpan(16, 30, 0), EndTime = new TimeSpan(18, 40, 0), Total = 0 },
+                new Examination { Examination_Code = "Ca 1", Name = "Sáng",StartTime = new TimeSpan(7, 30, 0), EndTime = new TimeSpan(10, 30, 0) },
+                new Examination { Examination_Code = "Ca 2", Name = "Trưa",StartTime = new TimeSpan(11, 0, 0), EndTime = new TimeSpan(12, 50, 0) },
+                new Examination { Examination_Code = "Ca 3", Name = "Chiều",StartTime = new TimeSpan(13, 30, 0), EndTime = new TimeSpan(15, 30, 0) },
+                new Examination { Examination_Code = "Ca 4", Name = "Tối",StartTime = new TimeSpan(16, 30, 0), EndTime = new TimeSpan(18, 40, 0) },
             };
             bool success = slotTimeController.InsertExaminations(list);
             loadmain();

@@ -8,19 +8,21 @@ using System.Threading.Tasks;
 
 namespace Phanlichphongkham.Model
 {
-    public class Examination
+    public class Zone
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Examination_Id { get; set; }
-        public string Examination_Code { get; set; }
-        public string Name { get; set; } // nvarchar(20)
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public int Zone_Id { get; set; }
+        public string Zone_code { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int Zone_Id_posgres { get; set; }
         public bool Enable { get; set; }
         public DateTime DateCreate { get; set; }
         public DateTime DateUpdate { get; set; }
         //khoa ngoại
-        public ICollection<DepartmentalAppointmentScheduling> DepartmentalAppointmentScheduling { get; set; }
+        public ICollection<Room> Room { get; set; }
+        public ICollection<ServicePrice> ServicePrice { get; set; }
+        public ICollection<SepcialtyJoinZone> SepcialtyJoinZone { get; set; }
     }
 }

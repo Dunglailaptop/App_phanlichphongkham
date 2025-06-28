@@ -8,19 +8,22 @@ using System.Threading.Tasks;
 
 namespace Phanlichphongkham.Model
 {
-    public class Examination
+    public class Sepicalty
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Examination_Id { get; set; }
-        public string Examination_Code { get; set; }
-        public string Name { get; set; } // nvarchar(20)
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public int Sepicalty_Id { get; set; }
+        public string? Sepicalty_code { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public string? ListType { get; set; }
+        public int? Sepicalty_id_posgres { get; set; }
         public bool Enable { get; set; }
-        public DateTime DateCreate { get; set; }
-        public DateTime DateUpdate { get; set; }
+        public DateTime? DateUpdate { get; set; }
+        public DateTime? DateCreate { get; set; }
         //khoa ngoại
         public ICollection<DepartmentalAppointmentScheduling> DepartmentalAppointmentScheduling { get; set; }
+        public ICollection<SepcialtyJoinZone> SepcialtyJoinZone { get; set; }
     }
+
 }
