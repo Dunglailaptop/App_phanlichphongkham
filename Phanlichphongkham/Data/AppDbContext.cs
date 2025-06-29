@@ -35,7 +35,7 @@ namespace Phanlichphongkham.Data
             modelBuilder.Entity<DepartmentalAppointmentScheduling>()
                 .HasOne(d => d.Doctor)
                 .WithMany(d => d.DepartmentalAppointmentScheduling)
-                .HasForeignKey(d => d.Doctor_id)
+                .HasForeignKey(d => d.Doctor_Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<DepartmentalAppointmentScheduling>()
@@ -47,7 +47,7 @@ namespace Phanlichphongkham.Data
             modelBuilder.Entity<DepartmentalAppointmentScheduling>()
                 .HasOne(d => d.Room)
                 .WithMany(e => e.DepartmentalAppointmentScheduling)
-                .HasForeignKey(d => d.Room_id)
+                .HasForeignKey(d => d.Room_Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<DepartmentalAppointmentScheduling>()
@@ -65,7 +65,7 @@ namespace Phanlichphongkham.Data
             modelBuilder.Entity<Room>()
                 .HasOne(t => t.Zone)
                 .WithMany(e => e.Room)
-                .HasForeignKey(t => t.Room_Id)
+                .HasForeignKey(t => t.Zone_Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Doctor>()

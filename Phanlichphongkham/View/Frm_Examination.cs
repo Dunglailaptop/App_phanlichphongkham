@@ -1,7 +1,8 @@
 ﻿using DevExpress.XtraEditors;
-using Phanlichphongkham.Controller;
-using Phanlichphongkham.Data;
+using HospitalDataLibrarys.Data;
+using Phanlichphongkham.Helper;
 using Phanlichphongkham.Model;
+using Phanlichphongkham.Presenters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,35 +15,20 @@ using System.Windows.Forms;
 
 namespace Phanlichphongkham.View
 {
-    public partial class Frm_SlotTime : DevExpress.XtraEditors.XtraForm
+    public partial class Frm_Examination : DevExpress.XtraEditors.XtraForm
     {
-        private readonly SlotTimeController slotTimeController;
-        public Frm_SlotTime()
+        private readonly ExaminationPresenter examinationPresenter;
+        public Frm_Examination()
         {
-            slotTimeController = new SlotTimeController();
+
             InitializeComponent();
-            loadmain();
-            
+           examinationPresenter = new ExaminationPresenter();
+            loadmainAsync();
         }
-
-        public void loadmain()
+        public async Task loadmainAsync()
         {
-            try
-            {
-                var result = slotTimeController.getlistExmination();
-                gridControl1.DataSource = result;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
-        }
-     
-
-        private void Frm_SlotTime_Load(object sender, EventArgs e)
-        {
-
+            var result = await Contants.ConvertToDataTableAsync(examinationPresenter.GetListAsync());
+            gridControl1.DataSource= result;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -54,8 +40,8 @@ namespace Phanlichphongkham.View
                 new Examination { Examination_Code = "Ca 3", Name = "Chiều",StartTime = new TimeSpan(13, 30, 0), EndTime = new TimeSpan(15, 30, 0) },
                 new Examination { Examination_Code = "Ca 4", Name = "Tối",StartTime = new TimeSpan(16, 30, 0), EndTime = new TimeSpan(18, 40, 0) },
             };
-            bool success = slotTimeController.InsertExaminations(list);
-            loadmain();
+            bool success = examinationPresenter.inesrt(list);
+            loadmainAsync();
             simpleButton1.Enabled = false;
         }
     }

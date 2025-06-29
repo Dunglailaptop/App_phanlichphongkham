@@ -13,10 +13,11 @@ namespace Phanlichphongkham.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Room_Id { get; set; }
-        public string? Room_code { get; set; }
-        public int? Zone_id { get; set; }
+        public string Room_code { get; set; }
+        public int Zone_Id { get; set; }
         public string? Name { get; set; }
-        public string? Room_id_posgres { get; set; }
+        public int? Room_IdPk_posgres { get; set; }
+        public int? Room_IdZone_posgres { get; set; }
         public bool Enable { get; set; }
         public DateTime? DateUpdate { get; set; }
         public DateTime? DateCreate { get; set; }

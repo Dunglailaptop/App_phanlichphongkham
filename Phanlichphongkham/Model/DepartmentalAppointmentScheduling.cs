@@ -14,33 +14,54 @@ namespace Phanlichphongkham.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Browsable(false)]
         public int DepartmentalAppointmentScheduling_Id { get; set; }
-        public string DepartmentalAppointmentScheduling_Code { get; set; }
+        [Browsable(false)]
+        public string DepartmentalAppointmentScheduling_Code { get; set; } = "LICHKHAM";
+        [DisplayName("Năm")]
         public int Year { get; set; }
+        [DisplayName("Tuần")]
         public int Week { get; set; }
+        [DisplayName("Thứ")]
         public string DayInWeek { get; set; } // nvarchar(20)
+        [DisplayName("Ngày")]
         public DateTime DateInWeek { get; set; }
+        [DisplayName("Số lượng")]
         public int Total { get; set; }
+        [DisplayName("Trạng thái")]
         public bool Status { get; set; }
-
+        [DisplayName("Chuyên khoa")]
         public int Specialty_id { get; set; }
-        public int Room_id { get; set; }
+        [DisplayName("Danh sách phòng")]
+        public int Room_Id { get; set; }
+        [DisplayName("Ca khám")]
         public int Examination_Id { get; set; }
-        public int Doctor_id { get; set; }
+        [DisplayName("Bác sĩ")]
+        public int Doctor_Id { get; set; }
+        [DisplayName("Khoa phòng")]
         public int DepartmentHospital_Id { get; set; }
+        [Browsable(false)]
+        public string Username { get; set; } = "Admin"; // nvarchar(50)
+        [Browsable(false)]
+        public int TotalOrder { get; set; }
+        [Browsable(false)]
+        public bool Lock {  get; set; }
 
-        public string Username { get; set; } // nvarchar(50)
-
-        public DateTime DateCreate { get; set; }
-        public DateTime DateUpdate { get; set; }
+        [Browsable(false)]
+        public DateTime DateCreate { get; set; } = DateTime.Now;
+        [Browsable(false)]
+        public DateTime DateUpdate { get; set; } = DateTime.Now;
 
         // Các mối quan hệ khác có thể thêm sau
+        [Browsable(false)]
         public Doctor Doctor { get; set; }
+        [Browsable(false)]
         public Examination Examination { get; set; }
+        [Browsable(false)]
         public DepartmentHospital DepartmentHospital { get; set; }
-
+        [Browsable(false)]
         public Room Room { get; set; }
-        
+        [Browsable(false)]
         public Sepicalty Sepicalty { get; set; }
     }
    

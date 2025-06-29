@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Phanlichphongkham.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreates : Migration
+    public partial class InitialCreatenewupsspp : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -77,7 +77,7 @@ namespace Phanlichphongkham.Migrations
                     Zone_code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Zone_Id_posgres = table.Column<int>(type: "int", nullable: false),
+                    Zone_Id_posgres = table.Column<int>(type: "int", nullable: true),
                     Enable = table.Column<bool>(type: "bit", nullable: false),
                     DateCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -116,9 +116,10 @@ namespace Phanlichphongkham.Migrations
                 name: "Rooms",
                 columns: table => new
                 {
-                    Room_Id = table.Column<int>(type: "int", nullable: false),
-                    Room_code = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Zone_id = table.Column<int>(type: "int", nullable: true),
+                    Room_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Room_code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Zone_Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Room_id_posgres = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Enable = table.Column<bool>(type: "bit", nullable: false),
@@ -129,8 +130,8 @@ namespace Phanlichphongkham.Migrations
                 {
                     table.PrimaryKey("PK_Rooms", x => x.Room_Id);
                     table.ForeignKey(
-                        name: "FK_Rooms_Zones_Room_Id",
-                        column: x => x.Room_Id,
+                        name: "FK_Rooms_Zones_Zone_Id",
+                        column: x => x.Zone_Id,
                         principalTable: "Zones",
                         principalColumn: "Zone_Id",
                         onDelete: ReferentialAction.Restrict);
@@ -204,9 +205,9 @@ namespace Phanlichphongkham.Migrations
                     Total = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     Specialty_id = table.Column<int>(type: "int", nullable: false),
-                    Room_id = table.Column<int>(type: "int", nullable: false),
+                    Room_Id = table.Column<int>(type: "int", nullable: false),
                     Examination_Id = table.Column<int>(type: "int", nullable: false),
-                    Doctor_id = table.Column<int>(type: "int", nullable: false),
+                    Doctor_Id = table.Column<int>(type: "int", nullable: false),
                     DepartmentHospital_Id = table.Column<int>(type: "int", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -222,8 +223,8 @@ namespace Phanlichphongkham.Migrations
                         principalColumn: "DepartmentHospital_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_DepartmentalAppointmentSchedulings_Doctors_Doctor_id",
-                        column: x => x.Doctor_id,
+                        name: "FK_DepartmentalAppointmentSchedulings_Doctors_Doctor_Id",
+                        column: x => x.Doctor_Id,
                         principalTable: "Doctors",
                         principalColumn: "Doctor_Id",
                         onDelete: ReferentialAction.Restrict);
@@ -234,8 +235,8 @@ namespace Phanlichphongkham.Migrations
                         principalColumn: "Examination_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_DepartmentalAppointmentSchedulings_Rooms_Room_id",
-                        column: x => x.Room_id,
+                        name: "FK_DepartmentalAppointmentSchedulings_Rooms_Room_Id",
+                        column: x => x.Room_Id,
                         principalTable: "Rooms",
                         principalColumn: "Room_Id",
                         onDelete: ReferentialAction.Restrict);
@@ -253,9 +254,9 @@ namespace Phanlichphongkham.Migrations
                 column: "DepartmentHospital_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DepartmentalAppointmentSchedulings_Doctor_id",
+                name: "IX_DepartmentalAppointmentSchedulings_Doctor_Id",
                 table: "DepartmentalAppointmentSchedulings",
-                column: "Doctor_id");
+                column: "Doctor_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DepartmentalAppointmentSchedulings_Examination_Id",
@@ -263,9 +264,9 @@ namespace Phanlichphongkham.Migrations
                 column: "Examination_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DepartmentalAppointmentSchedulings_Room_id",
+                name: "IX_DepartmentalAppointmentSchedulings_Room_Id",
                 table: "DepartmentalAppointmentSchedulings",
-                column: "Room_id");
+                column: "Room_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DepartmentalAppointmentSchedulings_Specialty_id",
@@ -276,6 +277,11 @@ namespace Phanlichphongkham.Migrations
                 name: "IX_Doctors_DepartmentHospital_Id",
                 table: "Doctors",
                 column: "DepartmentHospital_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rooms_Zone_Id",
+                table: "Rooms",
+                column: "Zone_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SepcialtyJoinZones_Specialty_id",

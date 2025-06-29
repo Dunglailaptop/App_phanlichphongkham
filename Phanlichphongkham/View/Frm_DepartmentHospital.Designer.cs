@@ -1,6 +1,6 @@
 ﻿namespace Phanlichphongkham.View
 {
-    partial class Frm_Specialty
+    partial class Frm_DepartmentHospital
     {
         /// <summary>
         /// Required designer variable.
@@ -58,7 +58,7 @@
             // 
             splitContainerControl1.Panel2.Controls.Add(gridControl1);
             splitContainerControl1.Panel2.Text = "Panel2";
-            splitContainerControl1.Size = new Size(1316, 926);
+            splitContainerControl1.Size = new Size(1558, 854);
             splitContainerControl1.SplitterPosition = 55;
             splitContainerControl1.TabIndex = 0;
             // 
@@ -67,7 +67,7 @@
             simpleButton1.Dock = DockStyle.Left;
             simpleButton1.Location = new Point(0, 0);
             simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(292, 55);
+            simpleButton1.Size = new Size(211, 55);
             simpleButton1.TabIndex = 0;
             simpleButton1.Text = "Đồng bộ";
             simpleButton1.Click += simpleButton1_Click;
@@ -78,7 +78,7 @@
             gridControl1.Location = new Point(0, 0);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(1316, 859);
+            gridControl1.Size = new Size(1558, 787);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -87,15 +87,14 @@
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             // 
-            // Frm_Specialty
+            // Frm_DepartmentHospital
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1316, 926);
+            ClientSize = new Size(1558, 854);
             Controls.Add(splitContainerControl1);
-            Name = "Frm_Specialty";
-            Text = "Frm_Specialty";
-            Load += Frm_Specialty_Load;
+            Name = "Frm_DepartmentHospital";
+            Text = "Frm_DepartmentHospital";
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).EndInit();
             splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel2).EndInit();

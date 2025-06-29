@@ -84,13 +84,13 @@ namespace Phanlichphongkham.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Doctor_id")
+                    b.Property<int>("Doctor_Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Examination_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Room_id")
+                    b.Property<int>("Room_Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Specialty_id")
@@ -116,11 +116,11 @@ namespace Phanlichphongkham.Migrations
 
                     b.HasIndex("DepartmentHospital_Id");
 
-                    b.HasIndex("Doctor_id");
+                    b.HasIndex("Doctor_Id");
 
                     b.HasIndex("Examination_Id");
 
-                    b.HasIndex("Room_id");
+                    b.HasIndex("Room_Id");
 
                     b.HasIndex("Specialty_id");
 
@@ -207,6 +207,8 @@ namespace Phanlichphongkham.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Room_Id"));
+
                     b.Property<DateTime?>("DateCreate")
                         .HasColumnType("datetime2");
 
@@ -220,15 +222,18 @@ namespace Phanlichphongkham.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Room_code")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Room_id_posgres")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Zone_id")
+                    b.Property<int>("Zone_Id")
                         .HasColumnType("int");
 
                     b.HasKey("Room_Id");
+
+                    b.HasIndex("Zone_Id");
 
                     b.ToTable("Rooms");
                 });
@@ -364,7 +369,7 @@ namespace Phanlichphongkham.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Zone_Id_posgres")
+                    b.Property<int?>("Zone_Id_posgres")
                         .HasColumnType("int");
 
                     b.Property<string>("Zone_code")
@@ -386,7 +391,7 @@ namespace Phanlichphongkham.Migrations
 
                     b.HasOne("Phanlichphongkham.Model.Doctor", "Doctor")
                         .WithMany("DepartmentalAppointmentScheduling")
-                        .HasForeignKey("Doctor_id")
+                        .HasForeignKey("Doctor_Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -398,7 +403,7 @@ namespace Phanlichphongkham.Migrations
 
                     b.HasOne("Phanlichphongkham.Model.Room", "Room")
                         .WithMany("DepartmentalAppointmentScheduling")
-                        .HasForeignKey("Room_id")
+                        .HasForeignKey("Room_Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -434,7 +439,7 @@ namespace Phanlichphongkham.Migrations
                 {
                     b.HasOne("Phanlichphongkham.Model.Zone", "Zone")
                         .WithMany("Room")
-                        .HasForeignKey("Room_Id")
+                        .HasForeignKey("Zone_Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

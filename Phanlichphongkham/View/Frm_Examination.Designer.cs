@@ -1,6 +1,6 @@
 ﻿namespace Phanlichphongkham.View
 {
-    partial class Frm_SlotTime
+    partial class Frm_Examination
     {
         /// <summary>
         /// Required designer variable.
@@ -58,17 +58,18 @@
             // 
             splitContainerControl1.Panel2.Controls.Add(gridControl1);
             splitContainerControl1.Panel2.Text = "Panel2";
-            splitContainerControl1.Size = new Size(1407, 824);
-            splitContainerControl1.SplitterPosition = 60;
+            splitContainerControl1.Size = new Size(1289, 741);
+            splitContainerControl1.SplitterPosition = 58;
             splitContainerControl1.TabIndex = 0;
             // 
             // simpleButton1
             // 
-            simpleButton1.Location = new Point(21, 12);
+            simpleButton1.Dock = DockStyle.Left;
+            simpleButton1.Location = new Point(0, 0);
             simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(207, 38);
+            simpleButton1.Size = new Size(273, 58);
             simpleButton1.TabIndex = 0;
-            simpleButton1.Text = "Tạo lịch mới";
+            simpleButton1.Text = "Đồng bộ";
             simpleButton1.Click += simpleButton1_Click;
             // 
             // gridControl1
@@ -77,7 +78,7 @@
             gridControl1.Location = new Point(0, 0);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(1407, 752);
+            gridControl1.Size = new Size(1289, 671);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -86,15 +87,14 @@
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             // 
-            // Frm_SlotTime
+            // Frm_Examination
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1407, 824);
+            ClientSize = new Size(1289, 741);
             Controls.Add(splitContainerControl1);
-            Name = "Frm_SlotTime";
-            Text = "Frm_SlotTime";
-            Load += Frm_SlotTime_Load;
+            Name = "Frm_Examination";
+            Text = "Frm_Examination";
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).EndInit();
             splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel2).EndInit();

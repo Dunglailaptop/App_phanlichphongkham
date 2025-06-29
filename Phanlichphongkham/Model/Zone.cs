@@ -16,7 +16,7 @@ namespace Phanlichphongkham.Model
         public string Zone_code { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public int Zone_Id_posgres { get; set; }
+        public int? Zone_Id_posgres { get; set; }
         public bool Enable { get; set; }
         public DateTime DateCreate { get; set; }
         public DateTime DateUpdate { get; set; }

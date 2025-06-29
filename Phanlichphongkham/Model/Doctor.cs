@@ -16,7 +16,7 @@ namespace Phanlichphongkham.Model
         public int Doctor_Id { get; set; }
         public string Doctor_Code { get; set; }
         public string Name { get; set; } // nvarchar(20)
-        public int Doctor_Id_progres { get; set; }
+        public string Doctor_Id_progres { get; set; }
         public int DepartmentHospital_Id { get; set; }
         public bool Enable { get; set; }
         public DateTime DateCreate { get; set; }

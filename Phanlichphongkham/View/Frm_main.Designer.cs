@@ -31,6 +31,7 @@
             xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
@@ -52,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel2).BeginInit();
             splitContainerControl1.Panel2.SuspendLayout();
             splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)comboBoxEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
@@ -93,6 +95,7 @@
             // 
             // splitContainerControl1.Panel1
             // 
+            splitContainerControl1.Panel1.Controls.Add(comboBoxEdit1);
             splitContainerControl1.Panel1.Controls.Add(simpleButton2);
             splitContainerControl1.Panel1.Controls.Add(simpleButton1);
             splitContainerControl1.Panel1.Controls.Add(textEdit2);
@@ -109,6 +112,14 @@
             splitContainerControl1.SplitterPosition = 78;
             splitContainerControl1.TabIndex = 0;
             // 
+            // comboBoxEdit1
+            // 
+            comboBoxEdit1.Location = new Point(862, 22);
+            comboBoxEdit1.Name = "comboBoxEdit1";
+            comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            comboBoxEdit1.Size = new Size(361, 22);
+            comboBoxEdit1.TabIndex = 6;
+            // 
             // simpleButton2
             // 
             simpleButton2.Location = new Point(706, 15);
@@ -116,6 +127,7 @@
             simpleButton2.Size = new Size(118, 36);
             simpleButton2.TabIndex = 5;
             simpleButton2.Text = "Tạo lịch mới";
+            simpleButton2.Click += simpleButton2_Click;
             // 
             // simpleButton1
             // 
@@ -183,6 +195,9 @@
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            gridView1.ShowingEditor += gridView1_ShowingEditor;
+            gridView1.CellValueChanged += gridView1_CellValueChanged;
+            gridView1.CellValueChanging += gridView1_CellValueChanging;
             gridView1.KeyDown += gridView1_KeyDown;
             gridView1.GotFocus += gridView1_GotFocus;
             // 
@@ -249,6 +264,7 @@
             splitContainerControl1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerControl1).EndInit();
             splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)comboBoxEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
@@ -282,5 +298,6 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraTreeList.TreeList treeList1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

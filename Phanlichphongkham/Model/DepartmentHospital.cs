@@ -15,7 +15,7 @@ namespace Phanlichphongkham.Model
         public int DepartmentHospital_Id { get; set; }
         public string DepartmentHospital_code { get; set; }
         public string Name { get; set; }
-        public string DepartmentHospital_id_posgres { get; set; }
+        public int DepartmentHospital_id_posgres { get; set; }
         public bool Enable { get; set; }
         public DateTime DateUpdate { get; set; }
         public DateTime DateCreate { get; set; }
